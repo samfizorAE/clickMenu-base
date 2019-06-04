@@ -1,0 +1,57 @@
+/*
+ *
+ * Base colors
+ *
+ */
+$black: #000;
+$white: #FFF;
+ 
+$primary: #a80f01;
+$primary-light: #f7aea8;
+
+$secondary: #d37f02;
+$secondary-light: #f2cf9b;
+$secondary-dark: #8c5708;
+
+$tertiary: #07a1b2;
+$tertiary-light: #b7eef4;
+
+$accent: #541b77;
+
+
+
+ // MAIN NAV
+ $nav-bkgd: $primary;
+ $nav-bkgd-hover: $primary-light;
+
+ $nav-link: $white;
+ $nav-link-active: $black;
+ $nav-link-hover: $black;
+ 
+ $nav-accents: $accent;
+ $nav-transition-speed: 0.4s;
+ 
+ /*  Nav: Level 2  */
+ $nav-bkgd-lvl2: $secondary;
+ $nav-bkgd-lvl2-hover: $secondary-light;
+
+ $nav-link-lvl2: $nav-link;
+ $nav-link-lvl2-hover: $nav-link-hover;
+ 
+ /*  Nav: Level 3  */
+ $nav-link-lvl3: $nav-link;
+ $nav-link-lvl3-hover: $nav-link-hover;
+ 
+ 
+ 
+ /*  === Nav: BURGER MENU ===  */
+ $nav-burger-bkgd: $primary;
+ $nav-burger-lines: $nav-link;
+ 
+ $nav-burger-bkgd-lvl2: $secondary;
+ $nav-burger-bkgd-lvl2-hover: $secondary-light;
+
+ $nav-burger-link-lvl2: $nav-link;
+
+ $nav-burger-bkgd-lvl3: $tertiary;
+ $nav-burger-bkgd-lvl3-hover: $tertiary-light;

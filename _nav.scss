@@ -1,0 +1,266 @@
+/************************/
+/*=====  MAIN NAV =====*/
+/**********************/
+.cm-menu {
+    background-color: $nav-bkgd;
+    z-index: 10;
+    
+    ul {
+        margin: 0; 
+        padding: 0;
+    }
+
+    > li {
+
+        a { 
+            color: $nav-link; 
+            text-decoration: none;
+            padding: 10px;
+
+            &:hover, &:active, &:focus, &:active:focus {
+                text-decoration: none;
+            }
+        }
+
+        /* Burger Menu - Plus Sign */
+        > a {
+
+            span {
+                width: 100%;
+                display: block;
+                padding-right: 50px;
+
+            }
+
+            &:after {
+                content: "\ea0a";
+                position: absolute;
+                top: 0;
+                right: 10px;
+                font-size: 2rem;
+            }
+        }
+    }
+}
+
+/* ===== MAIN NAV: Desktop ===== */
+@include lg {
+    .cm-menu {
+
+        > li {
+            padding: 0 1rem;
+            text-align: center;
+
+            a, a:visited {
+                padding: 10px;
+
+                span {
+                    padding: 0;
+                }
+            }
+
+            > a {
+                padding: 10px;
+                &:after {
+                    display: none;
+                }
+            }
+
+            &.opened {
+                background-color: $nav-bkgd-lvl2;
+            }
+        }
+
+        > li {
+            &.opened {
+                a, a:visited {
+                    span {
+                        color: $nav-link-active;
+                    }
+                    &:hover {
+                        span {
+                            color: $nav-link-hover;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+/****************************/
+/*=====  END Main Nav =====*/
+/**************************/
+
+
+
+/*********************************/
+/*=====  MAIN NAV: LEVEL 2 =====*/
+/*******************************/
+.cm-menu {
+    > li {
+        &.opened {
+            > ul {
+                background-color: $nav-burger-bkgd-lvl2;
+
+                a {
+
+                    span {
+                        color: $nav-burger-link-lvl2;
+                    }
+
+                    &:hover {
+                        background-color: $nav-burger-bkgd-lvl2-hover;
+
+                        span {
+                            color: $nav-link-lvl2-hover;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* ===== LEVEL 2: Desktop ===== */
+@include lg {
+    .cm-menu {
+        > li {
+            &.opened {
+                > ul {
+                    a {
+                        text-align: left;
+
+                        &:hover {
+                            background-color: $nav-burger-bkgd-lvl2;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+/*************************************/
+/*=====  End Main Nav: LEVEL 2 =====*/
+/***********************************/
+
+
+
+/*********************************/
+/*=====  MAIN NAV: LEVEL 3 =====*/
+/*******************************/
+.cm-menu {
+    > li {
+        &.opened {
+            > ul {
+                li {
+                    > ul {
+                        background-color: $nav-burger-bkgd-lvl3;
+
+                        a {
+                            span {
+                                color: $nav-link-lvl3 !important;
+                            }
+
+                            &:hover {
+                                background-color: $nav-burger-bkgd-lvl3-hover;
+
+                                span {
+                                    color: $nav-link-lvl3-hover !important;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+/* ===== LEVEL 3: Desktop ===== */
+@include lg {
+    .cm-menu {
+        > li {
+            &.opened {
+                > ul {
+                    li {
+                        > ul {
+                            background-color: $nav-bkgd-lvl2;
+                            padding: 0 6px;
+
+                            a {
+                                &:hover {
+                                    background-color: $nav-bkgd-lvl2;
+
+                                    span {
+                                        color: $nav-link-lvl3-hover;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+/*************************************/
+/*=====  End Main Nav: LEVEL 3 =====*/
+/***********************************/
+
+
+
+/***************************/
+/*=====  TOGGLE MENU =====*/
+/*************************/
+.toggle-menu {
+    width: 50px; 
+    height: 46px; 
+    background: $nav-burger-bkgd;
+    float: left;
+    border: none;
+
+    &:before, &:after, > span:before {
+        content: " ";
+        position: absolute; 
+        left: 15%;
+        width: 70%; 
+        height: 3px; 
+        border-radius: 2px;
+        background: $nav-burger-lines;
+    } 
+    &:before { top: 11px; }
+    &:after { top: 21px; }
+    
+    > span:before { top: 31px; }
+}
+
+
+
+/*****************************/
+/*=====  MOBILE DRAWER =====*/
+/***************************/
+@include lgd {
+    .cm-js-menu-active {
+        .body {
+            position: relative;
+            left: 70%;
+
+            @include md {
+                left: 400px;
+            }
+        }
+
+        .cm-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 70%;
+            height: 100vh;
+
+            @include md {
+                width: 400px;
+            }
+        }
+    }
+}

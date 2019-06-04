@@ -1,0 +1,172 @@
+.main-nav {
+    width: 100%;
+    position: relative;
+    z-index: 1000;
+}
+
+
+/************************/
+/*=====  MAIN NAV =====*/
+/**********************/
+.cm-menu {
+    width: 100%;
+    position: relative;
+    overflow-y: scroll;
+
+    @include listReset;
+
+    *, *:after, *:before { 
+        -webkit-box-sizing: border-box;
+	    -moz-box-sizing: border-box;
+	    box-sizing: border-box;
+    }
+
+    ul {
+        max-height: 0;
+        list-style: none; 
+        opacity: 0;
+        overflow: hidden;
+        transition: max-height $nav-transition-speed ease-in-out, 
+                    opacity $nav-transition-speed ease-in-out;
+        -webkit-transition: max-height $nav-transition-speed ease-in-out, 
+                    opacity $nav-transition-speed ease-in-out;
+    }
+
+    > li { 
+        position: relative;
+
+        &.opened {
+
+            > a {
+                &:after {
+                    content: "–";
+                }
+            }
+
+            ul {
+                max-height: none;
+                opacity: 1;
+            }
+        }
+
+        &:first-child { border-top: 0; }
+
+        a {
+            display: block;  
+            position: relative;
+        }
+    }
+
+    .opened > ul { 
+        max-height: 80em; 
+        opacity: 1; 
+    } 
+}
+
+/* ===== MAIN NAV: Desktop ===== */
+@include lg {
+    .cm-menu {
+        display: flex;
+        align-items: center;
+        overflow-y: hidden;
+
+        ul {
+            top: 100%;
+            overflow: hidden;
+        }
+
+        li {
+            border-top: 0;
+        }
+
+        > ul {
+            width: 100%;
+            display: table;
+            table-layout: fixed;
+
+            > li {
+                display: table-cell;
+                vertical-align: middle;
+
+                > a {
+                    width: 100%;
+                    display: table;
+
+                    > span {
+                        display: table-cell;
+                    }
+                }
+
+                > ul {
+                    position: absolute;
+                }
+            }
+        }
+
+        .opened {
+            > ul {
+                max-height: 80em;
+                opacity: 1;
+            }
+        }
+
+        .animated {
+            > ul {
+                overflow: visible;
+                z-index: 10;
+            }
+        }
+
+        .animating {
+            > ul {
+                z-index: 1;
+            }
+        }
+
+        .has-sub span:after {
+            position: static;
+        }
+    }
+}
+/****************************/
+/*=====  END Main Nav =====*/
+/**************************/
+
+
+
+/***************************/
+/*=====  TOGGLE MENU =====*/
+/*************************/
+
+.toggle-menu + .cm-menu {
+    max-height: 0;
+    opacity: 0;
+    transition: max-height $nav-transition-speed ease-in-out, opacity $nav-transition-speed ease-in-out;
+    -webkit-transition: max-height $nav-transition-speed ease-in-out, opacity $nav-transition-speed ease-in-out;
+}
+
+.cm-js-active { 
+    .cm-menu { 
+        max-height: 80em; 
+        opacity: 1; 
+    }
+}
+
+.toggle-menu {
+    display: block;
+    position: relative;
+}
+
+/* ===== TOGGLE MENU: Desktop ===== */
+@include lg {
+    .toggle-menu { display: none; }
+    
+    .toggle-menu + .cm-menu { 
+        max-height: 80em; 
+        opacity: 1; 
+        overflow: visible; 
+    }
+}
+/*******************************/
+/*=====  END Toggle Menu =====*/
+/*****************************/
